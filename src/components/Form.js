@@ -36,6 +36,7 @@ export default function Form(props) {
         name='content'
         value={note.content}
         onChange={updateNote}
+        rows="3"
         placeholder='Enter a note...'
       />
       <button onClick={onSubmit}>Add</button>
