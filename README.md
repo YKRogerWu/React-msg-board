@@ -1,5 +1,5 @@
 ## React-msg-board
-A simple forum APP that I made as one step forward from my previous basic React.js project.
+A bit more advanced forum APP that I made as one step forward from my previous basic React.js project.
 </br>
 ### Check the Live Demo of This Site!
 https://frozen-gorge-39305.herokuapp.com/
