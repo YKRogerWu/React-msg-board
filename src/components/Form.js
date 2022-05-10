@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 export default function Form(props) {
   const [note, setNote] = useState({
@@ -6,9 +9,15 @@ export default function Form(props) {
     content: ""
   })
 
+  const [isExpanded, setExpanded] = useState(false)
+
+  function expansionOn() {
+    setExpanded(true)
+  }
+
   function updateNote(event) {
     const { name, value } = event.target
-    setNote(prevValue =>(
+    setNote(prevValue => (
       {
         ...prevValue,
         [name]: value
@@ -16,30 +25,41 @@ export default function Form(props) {
     ))
   }
 
-  function onSubmit(event){
+  function onSubmit(event) {
     props.addNote(note)
     setNote({
-      title:"",
-      content:""
+      title: "",
+      content: ""
     })
     event.preventDefault()
   }
 
   return (
-    <form>
-      <input
-        name='title'
-        value={note.title}
-        onChange={updateNote}
-        placeholder='Title' />
+    <form className='create-note'>
+
+      {isExpanded &&
+        <input
+          name='title'
+          value={note.title}
+          onChange={updateNote}
+          placeholder='Title' />
+      }
       <textarea
         name='content'
         value={note.content}
         onChange={updateNote}
-        rows="3"
+        onClick={expansionOn}
+        rows={isExpanded ? "3" : "1"}
         placeholder='Enter a note...'
       />
-      <button onClick={onSubmit}>Add</button>
+
+      <Zoom in={isExpanded}>
+        <Fab onClick={onSubmit}>
+          <AddIcon />
+        </Fab>
+      </Zoom>
+
+
     </form>
   )
 }
