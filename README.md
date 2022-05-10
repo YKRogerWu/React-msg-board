@@ -1,1 +1,1 @@
-![DEMO](https://github.com/YKRogerWu/react-msg-board-example/blob/main/letsTalkDemo.png?raw=true)
+![DEMO](https://github.com/YKRogerWu/React-msg-board/blob/main/letsTalkDemoPic.png?raw=true)
